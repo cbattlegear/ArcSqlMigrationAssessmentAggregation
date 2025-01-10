@@ -25,9 +25,9 @@ Simple overview of the Hostname/Instance configurations and high level HA status
 
 - **Total Cores**: Numbers of cores configured for the indicated SQL Hostname/Instance.
   
-- **Max Memory (MB)**: Total RAM configured for the indicated SQL Hostname/Instance in MegaBytes.
+- **Max Memory (MB)**: Total RAM configured for the indicated SQL Hostname/Instance in Megabytes.
   
-- **Database Size (MB)**: Sum of all databases sizes in for the indicated SQL Hostname/Instance in MegaBytes.
+- **Database Size (MB)**: Sum of all databases sizes in for the indicated SQL Hostname/Instance in Megabytes.
   
 - **HA Enabled**: Indicated server is utilizing Always On or Failover Cluster Instances (FCI).
 
@@ -53,5 +53,5 @@ Simple overview of the Hostname/Instance configurations and high level HA status
 
 This assessment is a best effort analysis of your environment and is always beneficial if not suggested to further review these results and environment to ensure accuracy and applicability..
 
-If any elibility issues for any of the Azure SQL managed offerings or desire for a deeper assessments, a common tool for individual or small quantity of databases to use is [Data Migration Assistant](https://learn.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver16) 
-or for larger scale asessments [Azure Migrate](https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview)
+If any eligibility issues for any of the Azure SQL managed offerings or desire for a deeper assessments, a common tool for individual or small quantity of databases to use is [Data Migration Assistant](https://learn.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver16) 
+or for larger scale assessments [Azure Migrate](https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview)
