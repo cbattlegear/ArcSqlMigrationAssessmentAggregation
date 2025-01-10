@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+    <head>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            /* # REPLACE WITH DATATABLES CSS # */
+        </style>
+
+        <style>
+          table.dataTable tfoot td.dt-foot-right {
+            text-align: right;
+          }
+        </style>
+ 
+        <script type="text/javascript">
+            // # REPLACE WITH DATATABLES JS #
+        </script>
+        <script type="text/javascript">
+            // # REPLACE WITH DATATABLES BOOTSTRAP JS #
+        </script>
+        <script type="text/javascript">
+            const data = {}; // #REPLACE WITH MIGRATION DATA#;
+
+            // # REPLACE WITH PROCESSASSESSMENTS JS #
+        </script>
+    </head>
+    <body>
+      
+      <nav class="navbar bg-success-subtle">
+        <div class="container-fluid">
+          <a class="navbar-brand">Arc Enabled SQL Migration Data</a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" id="global_search" placeholder="Search all tables" aria-label="Search all tables">
+          </form>
+        </div>
+      </nav>
+      <div class="container-fluid">
+      <div class="row">
+        <div id="suitability-tables" class="col pb-3">
+          <table class="table table-striped table-bordered caption-top">
+            <caption><h4>Migration Suitability Results</h4></caption>
+            <thead>
+                <tr>
+                    <!-- Table headers will be inserted here -->
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <!-- Table rows will be inserted here -->
+            </tbody>
+            <tfoot class="table-info">
+              <tr>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div id="current-server-tables" class="col py-3">
+          <table class="table table-striped table-bordered caption-top">
+            <caption><h4>Current Server Resources</h4></caption>
+            <thead>
+                <tr>
+                    <!-- Table headers will be inserted here -->
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <!-- Table rows will be inserted here -->
+            </tbody>
+            <tfoot class="table-info">
+              <tr>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div id="skusqlvm-tables" class="col py-3">
+          <table class="table table-striped table-bordered caption-top">
+            <caption><h4>Azure SQL VM Recommendations</h4></caption>
+            <thead>
+                <tr>
+                    <!-- Table headers will be inserted here -->
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <!-- Table rows will be inserted here -->
+            </tbody>
+            <tfoot class="table-info">
+              <tr>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        </div>
+        <div class="row">
+        <div id="skudbmi-tables" class="col py-3">
+          <table class="table table-striped table-bordered caption-top">
+            <caption><h4>Azure SQL Managed Instance Recommendations</h4></caption>
+            <thead>
+                <tr>
+                    <!-- Table headers will be inserted here -->
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <!-- Table rows will be inserted here -->
+            </tbody>
+            <tfoot class="table-info">
+              <tr>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        </div>
+        <div class="row">
+        <div id="skusqldb-tables" class="col py-3">
+          <table class="table table-striped table-bordered caption-top">
+            <caption><h4>Azure SQL Database Recommendations</h4></caption>
+            <thead>
+                <tr>
+                    <!-- Table headers will be inserted here -->
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <!-- Table rows will be inserted here -->
+            </tbody>
+            <tfoot class="table-info">
+              <tr>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        </div>
+      </div>
+  </body>
+</html>
