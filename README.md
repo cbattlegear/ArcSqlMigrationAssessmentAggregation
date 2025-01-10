@@ -3,6 +3,8 @@
 Azure Arc enabled SQL Servers will perform weekly (if not explicitly disabled) assessments to review the SQL Servers for Azure compatibility and potential targets. 
 This data is available within Azure but not directly exposed in the Azure portal. This tools aggregates that data to create a report for review of any potential migrations to SQL in Azure.
 
+### [Example Output](https://cbattlegear.github.io/ArcSqlMigrationAssessmentAggregation/example_output.html)
+
 - Common Columns
   - **Server Name**: Represents the Hostname/Instance name for all SQL instances configured by Azure Arc. If no instance is indicated after the hostname it is due to the instance being a default installed instance on the host.
   - **Total Databases**: Indicating the number of user databases under the SQL Hostname/Instance.
@@ -51,7 +53,7 @@ Simple overview of the Hostname/Instance configurations and high level HA status
   
 ## Disclaimer
 
-This assessment is a best effort analysis of your environment and is always beneficial if not suggested to further review these results and environment to ensure accuracy and applicability..
+This assessment is a best effort analysis of your environment and is always beneficial if not suggested to further review these results and environment to ensure accuracy and applicability.
 
 If any eligibility issues for any of the Azure SQL managed offerings or desire for a deeper assessments, a common tool for individual or small quantity of databases to use is [Data Migration Assistant](https://learn.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver16) 
 or for larger scale assessments [Azure Migrate](https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview)
