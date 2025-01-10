@@ -154,3 +154,5 @@ $date = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
 $outputPath = ".\output-$date.html"
 
 $template | Out-File -FilePath $outputPath
+
+$jsonOut | Out-File -FilePath ".\output-$date.json"
