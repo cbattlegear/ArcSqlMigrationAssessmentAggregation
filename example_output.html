@@ -39,6 +39,10 @@
           table.dataTable tfoot td.dt-foot-right {
             text-align: right;
           }
+
+          table.dataTable tfoot td {
+            font-weight: bold;
+          }
         </style>
  
         <script type="text/javascript">
@@ -4606,7 +4610,7 @@ alldbs = {
 }
 $.each(dbOutput, function(index, item) {
   alldbs.Databases.push(item.Properties.Name);
-  console.log(item);
+  
   if(item.TargetReadinesses.AzureSqlDatabase.RecommendationStatus == 'Ready') {
     alldbs.ReadySqlDb.push(item.Properties.Name);
   } else {
@@ -4650,7 +4654,9 @@ $('#suitability-tables table thead tr').append('<th>Server Name</th><th>Total Da
 suitabilityTotals = {
   "TotalDatabases": 0,
   "TotalSqlDBEligible": 0,
-  "TotalDBMIEligible": 0
+  "SqlDBYesCount": 0,
+  "TotalDBMIEligible": 0,
+  "DbmiYesCount": 0
 }
 
 ModalData = {};
@@ -4676,12 +4682,22 @@ $.each(data.Suitability, function(index, item) {
       row += '<td>' + index + '</td>';
 
       row += '<td><a href="#" data-bs-toggle="modal" data-bs-target="#infoModal" data-bs-modal-guid="'+allDbsModalGuid+'">' + numFormat.format(item.Servers[0].TargetReadinesses.AzureSqlDatabase.TotalNumberOfDatabases) + '</a></td>';
-
-      let sqlDbReady = (item.Servers[0].TargetReadinesses.AzureSqlDatabase.RecommendationStatus == 'Ready') ? 'Yes' : 'No';                   
+      
+      let sqlDbReady = 'No';
+      if(item.Servers[0].TargetReadinesses.AzureSqlDatabase.RecommendationStatus == 'Ready') {
+        sqlDbReady = 'Yes';
+        suitabilityTotals.SqlDBYesCount++;
+      }
+                   
       row += '<td><a href="#" data-bs-toggle="modal" data-bs-target="#infoModal" data-bs-modal-guid="'+azureSqlModalGuid+'">' + numFormat.format(item.Servers[0].TargetReadinesses.AzureSqlDatabase.NumberOfDatabasesReadyForMigration) + '</a></td>';
       row += '<td>' + sqlDbReady + '</td>';
 
-      let dbmiReady = item.Servers[0].TargetReadinesses.AzureSqlManagedInstance.RecommendationStatus == 'Ready' ? 'Yes' : 'No';
+      let dbmiReady = 'No';
+      if(item.Servers[0].TargetReadinesses.AzureSqlManagedInstance.RecommendationStatus == 'Ready') {
+        dbmiReady = 'Yes';
+        suitabilityTotals.DbmiYesCount++;
+      }
+
       row += '<td><a href="#" data-bs-toggle="modal" data-bs-target="#infoModal" data-bs-modal-guid="'+dbmiModalGuid+'">' + numFormat.format(item.Servers[0].TargetReadinesses.AzureSqlManagedInstance.NumberOfDatabasesReadyForMigration) + '</a></td>';
       row += '<td>' + dbmiReady + '</td>';
 
@@ -4717,7 +4733,7 @@ $.each(data.Suitability, function(index, item) {
       }
   });
 
-  $('#suitability-tables table tfoot tr').append('<td>Totals</td><td>' + numFormat.format(suitabilityTotals.TotalDatabases) + '</td><td>' + numFormat.format(suitabilityTotals.TotalSqlDBEligible) + '</td><td></td><td>' + numFormat.format(suitabilityTotals.TotalDBMIEligible) + '</td><td></td>');
+  $('#suitability-tables table tfoot tr').append('<td>Totals</td><td>' + numFormat.format(suitabilityTotals.TotalDatabases) + '</td><td>' + numFormat.format(suitabilityTotals.TotalSqlDBEligible) + '</td><td>' + numFormat.format(suitabilityTotals.SqlDBYesCount) + '</td><td>' + numFormat.format(suitabilityTotals.TotalDBMIEligible) + '</td><td>' + numFormat.format(suitabilityTotals.DbmiYesCount) + '</td>');
 
   $('#current-server-tables table thead tr').append('<th>Server Name</th><th>Total Databases</th><th>Total Cores</th><th>Max Memory (MB)</th><th>Database Size (MB)</th><th>HA Enabled</th>');
   
@@ -4903,6 +4919,7 @@ $.each(data.Suitability, function(index, item) {
       <nav class="navbar bg-success-subtle">
         <div class="container-fluid">
           <a class="navbar-brand">Arc Enabled SQL Migration Data</a>
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#disclaimerModal">Disclaimer</a>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" id="global_search" placeholder="Search all tables" aria-label="Search all tables">
           </form>
@@ -5015,6 +5032,28 @@ $.each(data.Suitability, function(index, item) {
               </div>
               <div class="modal-body">
                 
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal" tabindex="-1" id="disclaimerModal">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Disclaimer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  This assessment is a best effort analysis of your environment and is always beneficial if not suggested to further review these results and environment to ensure accuracy and applicability.
+
+                  If any eligibility issues for any of the Azure SQL managed offerings or desire for a deeper assessments, a common tool for individual or small quantity of databases to use is <a href="https://learn.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver16">Data Migration Assistant</a>
+                  or for larger scale assessments <a href="https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview">Azure Migrate</a>
+                </p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
