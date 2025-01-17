@@ -1,13 +1,21 @@
+Write-Progress -Activity "Gathering Assessments from Azure Arc Data" -Status "Getting Azure Arc  SQL Migration Assessments" -PercentComplete 0
+
 $arcResources = Get-AzResource -ResourceType 'microsoft.azurearcdata/sqlserverinstances'
 
+Write-Progress -Activity "Gathering Assessments from Azure Arc Data" -Status "Gathered Azure Arc SQL Migration Assessments" -Completed
+
 $assessmentListParallel = [System.Collections.Concurrent.ConcurrentDictionary[string,object]]::new()
+$progress = [System.Collections.Concurrent.ConcurrentDictionary[string,int]]::new()
 $assessmentList = @{}
 
-
+$progress['TotalResources'] = $arcResources.Count * 4
+$progress['FinishedResources'] = 0
 
 if ($PSVersionTable.PSVersion.Major -ge 7) {
     $arcResources | ForEach-Object -ThrottleLimit 5 -Parallel {
         $assessmentList = $using:assessmentListParallel
+        $progressHold = $using:progress
+
         $payload = @{
             datasetName = 'MigrationAssessments'
         } | ConvertTo-Json
@@ -30,19 +38,15 @@ if ($PSVersionTable.PSVersion.Major -ge 7) {
     
     
         $migrationRows = $migrateObject.properties.rows
-    
+        
         $migrationRows | ForEach-Object {
     
             $assessment = $_[1] | ConvertFrom-Json
             $assessmentType = $_[2]
-    
-    
-    
+        
             $assessment = $_[1] | ConvertFrom-Json
             $assessmentType = $_[2]
-    
-    
-    
+
             $serverName = ""
             if ($assessmentType -eq "Suitability") {            
                 #Write-Host $_[1]
@@ -50,8 +54,11 @@ if ($PSVersionTable.PSVersion.Major -ge 7) {
             } else {
                 $serverName = $assessment.SkuRecommendationForServers[0].ServerName
             }
-            
-            Write-Host "Server Name: $serverName, Assessment Type: $assessmentType"
+
+            $progressHold['FinishedResources']++
+        Write-Progress -Activity "Processing Assessments" -PercentComplete (($progressHold['FinishedResources'] / $progressHold['TotalResources']) * 100) -Status "Processing $serverName"
+
+            # Write-Host "Server Name: $serverName, Assessment Type: $assessmentType"
             try {
              
                 if ($assessmentList.ContainsKey($assessmentType) -eq $false) {
@@ -68,6 +75,8 @@ if ($PSVersionTable.PSVersion.Major -ge 7) {
         }
     }
     $assessmentList = $assessmentListParallel
+
+    Write-Progress -Activity "Processing Assessments" -PercentComplete 100 -Status "Finsihed Processing Assessments"
 } else {
     $arcResources | ForEach-Object {
 
@@ -160,3 +169,10 @@ $outputPath = ".\output-$date.html"
 $template | Out-File -FilePath $outputPath
 
 $jsonOut | Out-File -FilePath ".\output-$date.json"
+
+$fullPath = Resolve-Path $outputPath
+
+Write-Host "Assessment data collected and written to $fullPath"
+Write-Host "If you are using Cloud Shell, you can download the file by clicking the download button in the toolbar above and pasting the path below:`n"
+
+Write-Host ($fullPath.ToString().Replace("$HOME", '').TrimStart('\').TrimStart('/'))
