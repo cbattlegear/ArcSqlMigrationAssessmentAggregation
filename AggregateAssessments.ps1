@@ -149,6 +149,10 @@ $processassessmentsJs = Get-Content -Path .\lib\processassessments.js -Raw
 
 $template = $template -replace '// # REPLACE WITH PROCESSASSESSMENTS JS #', $processassessmentsJs
 
+$issuesListJson = Get-Content -Path .\lib\issues.json -Raw
+
+$template = $template -replace '{}; // #REPLACE WITH ISSUE LIST#;', $issuesListJson
+
 $date = Get-Date -Format "yyyy-MM-dd-HH-mm-ss"
 
 $outputPath = ".\output-$date.html"

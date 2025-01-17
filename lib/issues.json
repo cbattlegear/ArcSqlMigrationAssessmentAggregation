@@ -1,0 +1,390 @@
+{
+    "dbmi": [
+        {
+            "Rule Title": "AnalysisCommandJob",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "AnalysisCommand job step isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "AnalysisQueryJob",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "AnalysisQuery job step isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "AssemblyFromFile",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "'CREATE ASSEMBLY' and 'ALTER ASSEMBLY' with a file parameter are unsupported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "BulkInsert",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "BULK INSERT with non-Azure blob data source isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "ClrStrictSecurity",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE."
+        },
+        {
+            "Rule Title": "ComputeClause",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "COMPUTE clause is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "CryptographicProvider",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found. This isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "DatabasePrincipalAlias",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "SYS.DATABASE_PRINCIPAL_ALIASES is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "DbCompatLevelLowerThan100",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Database compatibility level below 100 isn't supported."
+        },
+        {
+            "Rule Title": "DisableDefCNSTCHK",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "SET option DISABLE_DEF_CNST_CHK is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "FastFirstRowHint",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "FASTFIRSTROW query hint is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "FileStream",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "FILESTREAM and FileTable aren't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "LinkedServerWithNonSQLProvider",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "Linked server with non-SQL Server Provider isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "MergeJob",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Merge job step isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "MIDatabaseSize",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "Azure SQL Managed Instance doesn't support database size greater than 16 TB."
+        },
+        {
+            "Rule Title": "MIHeterogeneousMSDTCTransactSQL",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "BEGIN DISTRIBUTED TRANSACTION with non-SQL Server remote server isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "MIHomogeneousMSDTCTransactSQL",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "BEGIN DISTRIBUTED TRANSACTION is supported across multiple servers for Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "MIInstanceSize",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Maximum instance storage size in Azure SQL Managed Instance can't be greater than 8 TB."
+        },
+        {
+            "Rule Title": "MultipleLogFiles",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "Azure SQL Managed Instance doesn't support databases with multiple log files."
+        },
+        {
+            "Rule Title": "NextColumn",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "Tables and Columns named NEXT lead to an error In Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "NonANSILeftOuterJoinSyntax",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Non-ANSI style left outer join is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "NonANSIRightOuterJoinSyntax",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Non-ANSI style right outer join is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "NumDbExceeds100",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Azure SQL Managed Instance supports a maximum of 100 databases per instance."
+        },
+        {
+            "Rule Title": "OpenRowsetWithNonBlobDataSourceBulk",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "OpenRowSet used in bulk operation with non-Azure blob storage data source isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "OpenRowsetWithNonSQLProvider",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "OpenRowSet with non-SQL provider isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "PowerShellJob",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "PowerShell job step isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "QueueReaderJob",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Queue Reader job step isn't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "RAISERROR",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Legacy style RAISERROR calls should be replaced with modern equivalents."
+        },
+        {
+            "Rule Title": "SqlMail",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "SQL Mail is no longer supported."
+        },
+        {
+            "Rule Title": "SystemProcedures110",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Detected statements that reference removed system stored procedures that aren't available in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "TraceFlags",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Trace flags not supported in Azure SQL Managed Instance were found."
+        },
+        {
+            "Rule Title": "TransactSqlJob",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "TSQL job step includes unsupported commands in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "WindowsAuthentication",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Database users mapped with Windows authentication (integrated security) aren't supported in Azure SQL Managed Instance."
+        },
+        {
+            "Rule Title": "XpCmdshell",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "xp_cmdshell isn't supported in Azure SQL Managed Instance."
+        }
+    ],
+    "sqldb": [
+        {
+            "Rule Title": "AgentJobs",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "SQL Server Agent jobs aren't available in Azure SQL Database."
+        },
+        {
+            "Rule Title": "BulkInsert",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "BULK INSERT with non-Azure blob data source isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "ClrAssemblies",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "SQL CLR assemblies aren't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "ComputeClause",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "COMPUTE clause is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "CrossDatabaseReferences",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "Cross-database queries aren't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "CryptographicProvider",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found, which isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "DatabaseMail",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Database Mail isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "DatabasePrincipalAlias",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "SYS.DATABASE_PRINCIPAL_ALIASES is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "DbCompatLevelLowerThan100",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Azure SQL Database doesn't support compatibility levels below 100."
+        },
+        {
+            "Rule Title": "DisableDefCNSTCHK",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "SET option DISABLE_DEF_CNST_CHK is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "FastFirstRowHint",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "FASTFIRSTROW query hint is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "FileStream",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "FILESTREAM isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "LinkedServer",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "Linked server functionality isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "MSDTCTransactSQL",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "BEGIN DISTRIBUTED TRANSACTION isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "NextColumn",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "Tables and Columns named NEXT lead to an error In Azure SQL Database."
+        },
+        {
+            "Rule Title": "NonANSILeftOuterJoinSyntax",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Non-ANSI style left outer join is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "NonANSIRightOuterJoinSyntax",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Non-ANSI style right outer join is no longer supported and has been removed."
+        },
+        {
+            "Rule Title": "OpenRowsetWithNonBlobDataSourceBulk",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "OpenRowSet used in bulk operation with non-Azure blob storage data source isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "OpenRowsetWithSQLAndNonSQLProvider",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "OpenRowSet with SQL or non-SQL provider isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "RAISERROR",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Legacy style RAISERROR calls should be replaced with modern equivalents."
+        },
+        {
+            "Rule Title": "ServerAudits",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Server Audits isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "ServerCredentials",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Server scoped credential isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "ServerScopedTriggers",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Server-scoped trigger isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "ServiceBroker",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "Service Broker feature isn't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "SQLDBDatabaseSize",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "Azure SQL Database doesn't support database size greater than 100 TB."
+        },
+        {
+            "Rule Title": "SqlMail",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "SQL Mail has been discontinued."
+        },
+        {
+            "Rule Title": "SystemProcedures110",
+            "Level": "Database",
+            "Category": "Warning",
+            "Details": "Detected statements that reference removed system stored procedures that aren't available in Azure SQL Database."
+        },
+        {
+            "Rule Title": "TraceFlags",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Azure SQL Database doesn't support trace flags."
+        },
+        {
+            "Rule Title": "WindowsAuthentication",
+            "Level": "Instance",
+            "Category": "Warning",
+            "Details": "Database users mapped with Windows authentication (integrated security) aren't supported in Azure SQL Database."
+        },
+        {
+            "Rule Title": "XpCmdshell",
+            "Level": "Database",
+            "Category": "Issue",
+            "Details": "xp_cmdshell isn't supported in Azure SQL Database."
+        }
+    ]
+}
