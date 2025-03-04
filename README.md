@@ -11,7 +11,8 @@ To run the assessments, the easiest method is to use Azure Cloud Shell.
 
 - Go to https://shell.azure.com and switch to a PowerShell session
 - Run `git clone https://github.com/cbattlegear/ArcSqlMigrationAssessmentAggregation.git` to copy the script to your cloud shell
-- Run `./ArcSqlMigrationAssessmentAggregation/AggregateAssessments.ps1` to gather the assessment data
+- Move into the `ArcSqlMigrationAssessmentAggregation` directory by running `cd ArcSqlMigrationAssessmentAggregation`
+- Run `./AggregateAssessments.ps1` to gather the assessment data
 - Download your assessment data using the path provided by the script in the "Manage Files" menu item
 
 ## Output
