@@ -35,17 +35,19 @@ if ($PSVersionTable.PSVersion.Major -ge 7) {
             }
         }
     
-    
-    
         $migrationRows = $migrateObject.properties.rows
+        #$server = $ResourceId.Split('/')[-1]
+        #$migrateObject.properties | ConvertTo-Json | Out-File ".\testout\$server.json" -Force
+        if ($migrationRows.Length -eq 0) {
+            Write-Warning "No data returned for $resourceId - skipping"
+            $progressHold['FinishedResources']++
+            break
+        }
         
         $migrationRows | ForEach-Object {
     
             $assessment = $_[1] | ConvertFrom-Json
-            $assessmentType = $_[2]
-        
-            $assessment = $_[1] | ConvertFrom-Json
-            $assessmentType = $_[2]
+            $assessmentType = $_[0]
 
             $serverName = ""
             if ($assessmentType -eq "Suitability") {            
